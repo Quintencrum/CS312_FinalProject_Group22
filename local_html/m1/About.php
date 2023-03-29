@@ -8,7 +8,8 @@
 
     <body>
         <h3>Quinten Crum</h3>
-        <img src="">
+        <!-- <img src=""> -->
+        <?php echo Asset::img("image_file_name.img")?>  <!-- need to update file names -->
         <p>About: </p>
 
         <h3>Joseph Erickson</h3>
