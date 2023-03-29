@@ -14,7 +14,7 @@
         <ul>
             <li><a href="home.php">Home</a></li>
             <li><a href="about.php">About</a></li>
-            <li><a href="color_coordinate_generation">Color Coordinate Generation</a></li>
+            <li><a href="color_coordinate_generation.php">Color Coordinate Generation</a></li>
         </ul>
     </nav>
     <?php echo $content; ?>
