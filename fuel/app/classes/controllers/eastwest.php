@@ -1,8 +1,8 @@
 <?php
 class Controller_eastwest extends Controller_Template {
 
-    public $numRowsColumns = "";    //number of rows/columns
-    public $numColors = "";         //number of colors
+    // public $numRowsColumns = "";    //number of rows/columns
+    // public $numColors = "";         //number of colors
 
 public function action_index(){ //Probably need to RENAME
     $data = array();
