@@ -8,17 +8,49 @@ public function action_index(){ //Probably need to RENAME
     $data = array();
     if(isset($_GET['numRowsColumns']) && isset($_GET['numColors'])){
         $rows = (int) $_GET['numRowsColumns'];
-        $cols = (int) $_GET['numColors'];
+        $colors = (int) $_GET['numColors'];
 
         //Checking for valid input
         if($rows >= 1 && $rows <=26 && $colors >= 1 && $colors <= 10) {
-            
+
+        }
+        else {
+            echo "Invalid input choose a number of rows/columns between 1 and 26 and a number of colors between 1 and 10.";
         }
 
 
     }
 }
+
+//IDK if this belongs here so I will comment this out
+public function create_table($numberOfRows, $numberOfColumns) {
+    echo "<table>";
+        for($i = 0;$i < $numberOfRows;$i++) {
+            //new row after every other iteration
+            if ($i%2 == 0) {
+                echo "<tr>";
+            }
+
+            //adding two column cells per row
+            echo "<td>Row " . ($i+1) . ", Column 1</td>";
+            echo "<td>Row " . ($i+1) . ", Column 2</td>";
+            
+            //ending row after every other iteration
+            if ($i%2 == 1) {
+                echo "</tr>";
+            }
+        }
+    echo "</table>";
 }
+
+}
+
+
+
+
+
+
+
 
 
 //Everything below is from orginal eastwest.php file
