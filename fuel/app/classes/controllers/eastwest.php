@@ -4,6 +4,35 @@ class Controller_eastwest extends Controller_Template {
     // public $numRowsColumns = "";    //number of rows/columns
     // public $numColors = "";         //number of colors
 
+
+
+public function action_index(){
+    $data = array();
+    $this->template->title='Group 22 Home Page';
+    $this->template->css='style.css';
+    $this->template->content=View::forge('pages/home',$data);
+}
+
+public function action_about(){
+    $data = array();
+    $this->template->title='Group 22 About Page';
+    $this->template->css='style.css';   //update
+    $this->template->content=View::forge('pages/about',$data);
+}
+
+public function action_colorSelector(){
+    $data = array();
+    $this->template->title='Group 22 Color Selector Page';
+    //$this->template->css='style.css';
+    //$this->template->content=View::forge('pages/home',$data);
+}
+
+
+
+
+
+/*
+Previous controller work here:
 public function action_index(){ //Probably need to RENAME
     $data = array();
     if(isset($_GET['numRowsColumns']) && isset($_GET['numColors'])){
@@ -21,6 +50,12 @@ public function action_index(){ //Probably need to RENAME
 
     }
 }
+
+
+
+
+
+*/
 
 
 
