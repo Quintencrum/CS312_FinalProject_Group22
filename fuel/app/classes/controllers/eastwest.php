@@ -12,7 +12,7 @@ public function action_index(){ //Probably need to RENAME
 
         //Checking for valid input
         if($rows >= 1 && $rows <=26 && $colors >= 1 && $colors <= 10) {
-
+            
         }
         else {
             echo "Invalid input choose a number of rows/columns between 1 and 26 and a number of colors between 1 and 10.";
