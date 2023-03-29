@@ -3,7 +3,7 @@
         <title><?php $title ?></title>
         <meta name="author" content="CS312">
         <meta name="description" content="A homepage for lab 2">
-        <meta name="keywords" content="Homepage, HTML5, Quinten Crum, CS312, CSU, Colorado State University">
+        <meta name="keywords" content="Final Project, HTML5, Group 22, CS312, CSU, Colorado State University">
         
         <?php echo Asset::css($css) ?>
 
