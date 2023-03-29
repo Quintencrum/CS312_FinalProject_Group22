@@ -22,6 +22,11 @@ public function action_index(){ //Probably need to RENAME
     }
 }
 
+
+
+
+
+
 //IDK if this belongs here so I will comment this out
 public function create_table_upper($numberOfRows, $numberOfColumns) {
     //colors
