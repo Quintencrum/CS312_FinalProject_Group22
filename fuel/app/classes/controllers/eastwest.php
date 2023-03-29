@@ -6,9 +6,24 @@ class Controller_eastwest extends Controller_Template {
 
 public function action_index(){ //Probably need to RENAME
     $data = array();
-    if(isset($_GET['numRowsColumns']) & isset($_GET['numColors'])){
-        $rows = $_GET['numRowsColumns'];
-        $cols = $_GET['numColors'];
+    if(isset($_GET['numRowsColumns']) && isset($_GET['numColors'])){
+        $rows = (int) $_GET['numRowsColumns'];
+        $cols = (int) $_GET['numColors'];
+
+        //Checking for valid input
+        if($rows >= 1 && $rows <=26 && $colors >= 1 && $colors <= 10) {
+            
+        }
+
+
+    }
+}
+}
+
+
+//Everything below is from orginal eastwest.php file
+
+/*
 
         if($dir == "east"){
             $this->template->title= 'East Home Page';
@@ -99,3 +114,4 @@ public function action_two(){
 }
 
 }
+*/
