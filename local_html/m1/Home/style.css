@@ -1,0 +1,70 @@
+/* Set font family and color for the entire website */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #444;
+    background-color: #ebebeb;
+}
+
+/* Set background color for the header and footer */
+header,
+footer {
+    background-color: #f8f8f8;
+}
+
+/* Style the nav bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 24px;
+    padding: 16px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* href handled with fuel */
+nav li {
+    margin: 0 16px;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Makes nav elements change color on hover */
+nav a:hover {
+    color: #ADD8E6;
+}
+
+main {
+    max-width: 800px;
+    margin: 16px auto;
+    padding: 0 16px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 64px;
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.5;
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+hfooter p {
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 16px 0;
+    color: #777;
+}
