@@ -10,13 +10,14 @@
 
 <body>
     <header>
-        <nav>
+<!--    <nav>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Color Coordinate Generation</a></li>
             </ul>
         </nav>
+-->
     </header>
     <main>
         <h1>Welcome to Group 22</h1>

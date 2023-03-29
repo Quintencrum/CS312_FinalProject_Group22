@@ -9,15 +9,13 @@
 
     </head>
 <body>
-<nav class="center, col">        
-
-            <br/>
-            <a class="link" href="https://www.cs.colostate.edu:4444/~qcrum/cs312/fuelviews/index.php/eastwest/index">Home!</a> ----     
-            <a class="link" href="https://www.cs.colostate.edu:4444/~qcrum/cs312/fuelviews/index.php/eastwest/index?direction=east">East</a>----
-            <a class="link" href="https://www.cs.colostate.edu:4444/~qcrum/cs312/fuelviews/index.php/eastwest/index?direction=west">West</a> ----
-            <?php echo '<a class="link" href="https://www.cs.colostate.edu:4444/~qcrum/cs312/fuelviews/index.php/eastwest/'.$dirOne.'">One</a> ----' ?>
-            <?php echo '<a class="link" href="https://www.cs.colostate.edu:4444/~qcrum/cs312/fuelviews/index.php/eastwest/'.$dirTwo.'">Two</a> ----' ?>            <br/>
-        </nav>
+    <nav>
+        <ul>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="color_coordinate_generation">Color Coordinate Generation</a></li>
+        </ul>
+    </nav>
 
     <?php echo '<h1>'.$title.'</h1>' ?>
     <?php echo Asset::img($img1)?>
