@@ -23,25 +23,57 @@ public function action_index(){ //Probably need to RENAME
 }
 
 //IDK if this belongs here so I will comment this out
-public function create_table($numberOfRows, $numberOfColumns) {
+public function create_table_upper($numberOfRows, $numberOfColumns) {
     echo "<table>";
-        for($i = 0;$i < $numberOfRows;$i++) {
-            //new row after every other iteration
-            if ($i%2 == 0) {
-                echo "<tr>";
-            }
-
-            //adding two column cells per row
-            echo "<td>Row " . ($i+1) . ", Column 1</td>";
-            echo "<td>Row " . ($i+1) . ", Column 2</td>";
-            
-            //ending row after every other iteration
-            if ($i%2 == 1) {
-                echo "</tr>";
-            }
+    for($i = 0;$i < $numberOfRows;$i++) {
+        //new row after every other iteration
+        if ($i%2 == 0) {
+            echo "<tr>";
         }
+
+        //adding two column cells per row
+        echo "<td>Row " . ($i+1) . ", Column 1</td>";
+        echo "<td>Row " . ($i+1) . ", Column 2</td>";
+        
+        //ending row after every other iteration
+        if ($i%2 == 1) {
+            echo "</tr>";
+        }
+    }
     echo "</table>";
 }
+
+
+//lower table
+public function create_table_lower($n) {
+    //letters array
+    $letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+
+    echo "<table>";
+    for ($i = 0; $i < $n+1; $i++) {  //table rows
+      echo "<tr>";
+      for ($j = 0; $j < $n+1; $j++) {    //table columns (cells per row)
+        //First row letter addition
+        if($i == 0 && $j != 0) {    //$i equals zero for first row & $j doesn't equal zero to leave left most cell empty
+            echo "<td>" . $letters[$i] . "</td>";
+        }
+        elseif($i > 0 && $j == 0) { //numbering the left most column starting in row two
+            echo "<td>" . ($i - 1) . "</td>";
+        }
+        else{
+            echo "<td>Row " . ($i+1) . ", Column " . ($j+1) . "</td>";
+        }
+      }
+      echo "</tr>";
+    }
+    echo "</table>";
+
+
+    
+}
+
+
+
 
 }
 
