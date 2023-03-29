@@ -24,6 +24,9 @@ public function action_index(){ //Probably need to RENAME
 
 //IDK if this belongs here so I will comment this out
 public function create_table_upper($numberOfRows, $numberOfColumns) {
+    //colors
+    $colors = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");
+
     echo "<table>";
     for($i = 0;$i < $numberOfRows;$i++) {
         //new row after every other iteration
@@ -32,7 +35,23 @@ public function create_table_upper($numberOfRows, $numberOfColumns) {
         }
 
         //adding two column cells per row
-        echo "<td>Row " . ($i+1) . ", Column 1</td>";
+        //echo "<td>Row " . ($i+1) . ", Column 1</td>";
+
+        //adding the color selection
+        echo    "<td>
+                    <form>
+                        <label for='color".($i+1).">Select color ".($i+1).":</label>
+                        <select name='color".($i+1)." id='color".($i+1).">";
+        $colorsAvailable = $colors;
+        
+        foreach($colorsAvailable as $colorsAvailable) {
+            echo "<option value=\"".$colorsAvailable."\">".$colorsAvailable."</option>";
+        }
+        echo
+                        "</select>
+                    </form>
+                </td>";
+
         echo "<td>Row " . ($i+1) . ", Column 2</td>";
         
         //ending row after every other iteration
