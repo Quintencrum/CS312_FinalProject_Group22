@@ -20,8 +20,8 @@
         <p>About: My name is Joseph, I am a Senior here at Colorado State University majoring in Computer Science. I love to golf, fish, and do anything outdoors. Just like Quinten, <strong>I love dogs!</strong></p>
 
         <h3>Garrett Schleich</h3>
-        <img src="">
-        <p>About: </p>
+        <?php echo Asset::images("garrett_image.jpg")?>
+        <p>About: My name is Garrett Schleich and I'm a Colorado native from Aurora. I'm currently a senior majoring in general Computer Science with a Certificate in Entrepreneurship. One of my goals is to start developing apps and software outside of school. I hope to graduate and pursue more real-world developing skills. I used to be a member of the CSU League of Legends team, and I previously studied abroad in South Korea.</p>
 
         <h3>Nicholas Eto</h3>
         <img src="">
