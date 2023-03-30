@@ -1,5 +1,5 @@
 <?php
-class Controller_eastwest extends Controller_Template {
+class Controller_m1 extends Controller_Template {
 
     // public $numRowsColumns = "";    //number of rows/columns
     // public $numColors = "";         //number of colors
