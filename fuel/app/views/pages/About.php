@@ -16,8 +16,8 @@
         </p>
 
         <h3>Joseph Erickson</h3>
-        <img src="">
-        <p>About: </p>
+        <?php echo Asset::images("joe-profile-pic.jpeg")?>
+        <p>About: My name is Joseph, I am a Senior here at Colorado State University majoring in Computer Science. I love to golf, fish, and do anything outdoors. Just like Quinten, <strong>I love dogs!</strong></p>
 
         <h3>Garrett Schleich</h3>
         <img src="">
