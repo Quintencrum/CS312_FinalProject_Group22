@@ -8,7 +8,6 @@
 
     <body>
         <h3>Quinten Crum</h3>
-        <!-- <img src=""> -->
         <?php echo Asset::imgages("quintenCrum_Image.jpeg")?>
         <p>About: <br>
             Quinten is a Senior at Colorado State University with a major in Data Science and a concentration in Economics. He enjoys travling to new places as you can see with the image above. <br>
@@ -24,7 +23,7 @@
         <p>About: My name is Garrett Schleich and I'm a Colorado native from Aurora. I'm currently a senior majoring in general Computer Science with a Certificate in Entrepreneurship. One of my goals is to start developing apps and software outside of school. I hope to graduate and pursue more real-world developing skills. I used to be a member of the CSU League of Legends team, and I previously studied abroad in South Korea.</p>
 
         <h3>Nicholas Eto</h3>
-        <img src="">
-        <p>About: </p>
+        <?php echo Asset::imgaes("sunnyuncropped.jpg")?>
+        <p>About: <br> My name is Nicholas Eto, I am a senior at Colorado State University majoring in General Computer Science. I am from Littleton and I enjoy fishing, traveling, and cooking/eating.</p>
     </body>
 </html>
