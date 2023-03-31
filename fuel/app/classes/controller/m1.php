@@ -17,7 +17,7 @@ public function action_about(){
     $data = array();
     $this->template->title='Group 22 About Page';
     $this->template->css='style.css';   //update
-    $this->template->content=View::forge('pages/About.php',$data);
+    $this->template->content=View::forge('pages/about.php',$data);
 }
 
 public function action_colorSelector(){
