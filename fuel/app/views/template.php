@@ -13,7 +13,7 @@
     <nav>
         <ul>
             <li><a href = "https://cs.colostate.edu:4444/~eid/m1/">Home</a></li>
-            <li><a href="about.php">About</a></li>
+            <li><a href= "https://cs.colostate.edu:4444/~eid/m1/index.php/m1/about">About</a></li>
             <li><a href="color_coordinate_generation.php">Color Coordinate Generation</a></li>
         </ul>
     </nav>
