@@ -12,9 +12,9 @@
 <body>
     <nav>
         <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="color_coordinate_generation.php">Color Coordinate Generation</a></li>
+            <li><a href="https://www.cs.colostate.edu:4444/~qcrum/m1/index.php/milestone1/index">Home</a></li>
+            <li><a href="https://www.cs.colostate.edu:4444/~qcrum/m1/index.php/milestone1/about">About</a></li>
+            <li><a href="https://www.cs.colostate.edu:4444/~qcrum/m1/index.php/milestone1/colorSelector">Color Coordinate Generation</a></li>
         </ul>
     </nav>
     <?php echo $content; ?>
