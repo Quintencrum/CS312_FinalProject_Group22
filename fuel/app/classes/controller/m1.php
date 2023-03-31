@@ -4,20 +4,20 @@ class Controller_m1 extends Controller_Template {
     // public $numRowsColumns = "";    //number of rows/columns
     // public $numColors = "";         //number of colors
 
-
+public $template = 'gtemplate';
 
 public function action_index(){
     $data = array();
-    $this->template->title='Group 22 Home Page';
-    $this->template->css='style.css';
-    $this->template->content=View::forge('pages/home',$data);
+    $this->template->title = 'Group 22 Home Page';
+    $this->template->css = 'style.css';
+    $this->template->content = View::forge('pages/index.php',$data);
 }
 
 public function action_about(){
     $data = array();
     $this->template->title='Group 22 About Page';
     $this->template->css='style.css';   //update
-    $this->template->content=View::forge('pages/about',$data);
+    $this->template->content=View::forge('pages/About.php',$data);
 }
 
 public function action_colorSelector(){
@@ -29,7 +29,7 @@ public function action_colorSelector(){
 
 
 
-
+}
 
 /*
 Previous controller work here:
@@ -60,7 +60,7 @@ public function action_index(){ //Probably need to RENAME
 
 
 
-
+/*
 
 //IDK if this belongs here so I will comment this out
 public function create_table_upper($numberOfRows, $numberOfColumns) {
@@ -131,110 +131,4 @@ public function create_table_lower($n) {
     
 }
 
-
-
-
-}
-
-
-
-
-
-
-
-
-
-//Everything below is from orginal eastwest.php file
-
-/*
-
-        if($dir == "east"){
-            $this->template->title= 'East Home Page';
-            $this->template->css = "east.css";
-            $this->template->content = View::forge('eastwest/index.php',$data);
-            $this->template->direction = "one?direction=east";
-            $this->template->direction2 = "two?direction=east";
-        }
-        else {
-            $this->template->title= 'West Home Page';
-            $this->template->css = "west.css";
-            $this->template->content = View::forge('eastwest/index.php',$data);
-            $this->template->direction = "one?direction=west";
-            $this->template->direction2 = "two?direction=west";
-
-        }
-    }
-    else {
-        $this->template->title= 'Home Page';
-        $this->template->css = "west.css";
-        $this->template->content = View::forge('eastwest/index.php',$data);
-        $this->template->direction = "one?direction=west";
-        $this->template->direction2 = "two?direction=west";
-
-    }
-}       
-
-
-public function action_one(){
-    $data = array();
-    if(isset($_GET['direction'])){
-        $dir = $_GET['direction'];
-        if($dir == "east"){
-            $this->template->title= 'East Page One';
-            $this->template->css = "east.css";
-            $this->template->content = View::forge('eastwest/one.php',$data);
-            $this->template->direction = "one?direction=east";
-            $this->template->direction2 = "two?direction=east";
-        }
-        else {
-            $this->template->title= 'West Page One';
-            $this->template->css = "west.css";
-            $this->template->content = View::forge('eastwest/one.php',$data);
-            $this->template->direction = "one?direction=west";
-            $this->template->direction2 = "two?direction=west";
-
-        }
-    }
-    else {
-        $this->template->title= 'Page One';
-        $this->template->css = "west.css";
-        $this->template->content = View::forge('eastwest/one.php',$data);
-        $this->template->direction = "one?direction=west";
-        $this->template->direction2 = "two?direction=west";
-    }
-}
-
-public function action_two(){
-    $data = array();
-    $this->template->content = View::forge('eastwest/two',$data);
-    if(isset($_GET['direction'])){
-        $dir = $_GET['direction'];
-        if($dir == "east"){
-            $this->template->title= 'East Page Two';
-            $this->template->content = View::forge('eastwest/two.php',$data);
-            $this->template->css = "east.css";
-            $this->template->direction = "one?direction=east";
-            $this->template->direction2 = "two?direction=east";
-        }
-        else {
-            $this->template->title= 'West Page Two';
-            $this->template->content = View::forge('eastwest/two.php',$data);
-            $this->template->css = "west.css";
-            $this->template->direction = "one?direction=west";
-            $this->template->direction2 = "two?direction=west";
-
-        }
-    }
-
-    else {
-        $this->template->title= 'Page Two';
-        $this->template->css = "west.css";
-        $this->template->content = View::forge('eastwest/two.php',$data);
-        $this->template->direction = "one?direction=west";
-        $this->template->direction2 = "two?direction=west";
-    }
-
-}
-
-}
 */
