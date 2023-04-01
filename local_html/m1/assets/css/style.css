@@ -68,3 +68,7 @@ hfooter p {
     margin: 16px 0;
     color: #777;
 }
+
+.area {
+    visibility: hidden
+}
