@@ -7,11 +7,40 @@ class Controller_milestone1 extends Controller_Template {
 
     public $template = 'gtemplate';
 
+// public function create_table_upper($numberOfRows, $numberOfColumns) {
+//     //colors
+//     $colors = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");
+
+//     $table = "<table>";
+//     $table .= "<tr><th style='width:20%;'>Color</th> <th>Value</th></tr>";  //initial table row
+
+//     //rest of table rows
+//     for($i = 0; $i < $numberOfRows; $i++) {
+//         $table .= "<tr>";   //new table row
+//         $table .= "<td>";    //new cell
+//         //inside left cell
+//         $table .= "<select name='color$i'>";
+
+//         for($j = 0; $j < count($colors); $j++) {
+//             $table .= "<option value='$colors[$j]'>$colors[$j]</option>";
+//         }
+
+//         $table .= "</select></td>";
+//         //inside right cell
+//         $table .= "<td><input type='text' name='value$i'></td>";
+//         $table .= "</tr>";
+//     }    
+
+
+//     return $table;
+// }
+
 public function action_index(){
     $data = array();
     $this->template->title = 'Group 22 Home Page';
     $this->template->css = 'style.css';
     $this->template->content = View::forge('pages/index',$data);
+     
 }
 
 public function action_about(){
@@ -19,12 +48,14 @@ public function action_about(){
     $this->template->title='Group 22 About Page';
     $this->template->css='style.css';   //update
     $this->template->content=View::forge('pages/About',$data);
+     
 }
 
 public function action_colorSelector(){
     $data = array();
     $this->template->title='Group 22 Color Selector Page';
     $this->template->css='style.css';
+     
     
     if($this->color_stage_input == false) {
         $this->template->content=View::forge('pages/color_coordinate_generation_input',$data);
@@ -35,8 +66,9 @@ public function action_colorSelector(){
 }
 
 public function action_tables() {
-    $val1 = $_GET['val1'];
-    $val2 = $_GET['val2'];
+    $rows = $_GET['val1'];
+    $colors = $_GET['val2'];
+    $validInput = false;
 
     $data = array();
     $this->template->title='Group 22 Color Selector Page';
@@ -44,54 +76,84 @@ public function action_tables() {
     
 
     //need to check if input is valid
+    if($rows >= 1 && $rows <=26 && $colors >= 1 && $colors <= 10) {
+        $validInput = true;
+    }    
 
     // if valid display tables file
-    if(isset($val1)) {
-        $color_stage_input = true;
-    }
 
 
-    if($color_stage_input == false) {
+    if($validInput == false) {
         $this->template->content=View::forge('pages/color_coordinate_generation_input',$data);
+        echo "Invalid input choose a number of rows/columns between 1 and 26 and a number of colors between 1 and 10.";
+
     }
     else {
         $this->template->content=View::forge('pages/color_coordinate_generation_tables',$data);
+
+        //Creating upper table w/o function ---------------------------
+        $colors_string = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");//all colors
+        $colors_string = array_slice($colors_string,0,$colors);
+
+        $table = "<table width='90%'>";
+        $table .= "<tr><th style='width:20%;'>Color</th> <th>Value</th></tr>";  //initial table row
+
+        //rest of table rows
+        for($i = 0; $i < $colors; $i++) {
+            $table .= "<tr>";   //new table row
+            $table .= "<td>";    //new cell
+            //inside left cell
+            $table .= "<select name='color$i'>";
+
+            for($j = 0; $j < count($colors_string); $j++) {
+                $table .= "<option value='$colors_string[$j]'>$colors_string[$j]</option>";
+            }
+
+            $table .= "</select></td>";
+            //inside right cell
+            $table .= "<td><input type='text' name='value$i'></td>";
+            $table .= "</tr>";
+        }
+
+
+        //--------------------------------------------------------------
+        
+        //Creating lower table w/o function ---------------------------
+        //letters array
+        $letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+
+        $table2 = "<table style='border: 1px solid black;width='100%';'>";
+        for ($i = 0; $i < $rows+1; $i++) {  //table rows
+            $table2 .= "<tr>";
+        for ($j = 0; $j < $rows+1; $j++) {    //table columns (cells per row)
+            //First row letter addition
+            if($i == 0 && $j != 0) {    //$i equals zero for first row & $j doesn't equal zero to leave left most cell empty
+                $table2 .= "<td style='border: 1px solid black;width='3.5%';'>" . $letters[$j-1] . "</td>";
+            }
+            elseif($i > 0 && $j == 0) { //numbering the left most column starting in row two
+                $table2 .= "<td style='border: 1px solid black;width='3.5%';'>" . ($i - 1) . "</td>";
+            }
+            elseif($i == 0 && $j == 0) {    //leaving top left blank
+                $table2 .= "<td style='border: 1px solid black;width='3.5%';'></td>";
+            }
+            else{
+                // $table2 .= "<td style='border: 1px solid black;'>(" . ($i+1) . ", " . ($j+1) . ")</td>";
+                $table2 .= "<td style='border: 1px solid black;width='3.5%';'></td>";
+
+            }
+        }
+        $table2 .= "</tr>";
+        }
+        $table2 .= "</table>";
+        //--------------------------------------------------------------
+        $tables = $table . "<br><br>" . $table2;
+
+
+        echo $tables;
     }
 
 }
-
-
-
 }
-
-/*
-Previous controller work here:
-public function action_index(){ //Probably need to RENAME
-    $data = array();
-    if(isset($_GET['numRowsColumns']) && isset($_GET['numColors'])){
-        $rows = (int) $_GET['numRowsColumns'];
-        $colors = (int) $_GET['numColors'];
-
-        //Checking for valid input
-        if($rows >= 1 && $rows <=26 && $colors >= 1 && $colors <= 10) {
-            
-        }
-        else {
-            echo "Invalid input choose a number of rows/columns between 1 and 26 and a number of colors between 1 and 10.";
-        }
-
-
-    }
-}
-
-
-
-
-
-*/
-
-
-
 
 /*
 
