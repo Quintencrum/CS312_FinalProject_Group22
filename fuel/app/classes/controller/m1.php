@@ -9,14 +9,14 @@ public $template = 'gtemplate';
 public function action_index(){
     $data = array();
     $this->template->title = 'Group 22 Home Page';
-    $this->template->css = 'style.css';
+    $this->template->css = 'styleNew.css';
     $this->template->content = View::forge('pages/index.php',$data);
 }
 
 public function action_about(){
     $data = array();
     $this->template->title='Group 22 About Page';
-    $this->template->css='style.css';   //update
+    $this->template->css='styleAbout.css';   //update
     $this->template->content=View::forge('pages/about.php',$data);
 }
 

@@ -20,14 +20,18 @@
             </ul>
         </nav>
 -->
-    </header>
+</header>
     <main>
-        <h1>Welcome to Group 22</h1>
-        <p>Requirements: You will create a web page for a fictitious company, including a name and logo. You must have a
-            homepage with a modern design that includes basic welcome information and contains useful links to get to
-            the other pages on the site. You must also have an "about" page where you list the names and a brief
-            biography of each group member. A picture or graphic avatar is required for each member of your team.</p>
-        <p>On the third page, you will have the color coordinate generation. More details on this, below.</p>
+    <div id="logowrap">
+    <div id="homepagelogo">
+    <?php echo Asset::img("Web22.png")?>
+    </div>
+    </div>
+            <p>
+                Welcome to Web22, a modern web development company dedicated to helping businesses build a strong online
+                presence. Our team of experienced developers, designers, and digital strategists work together to create
+                beautiful, functional, and user-friendly websites that deliver measurable results.
+            </p>
     </main>
 </body>
 
