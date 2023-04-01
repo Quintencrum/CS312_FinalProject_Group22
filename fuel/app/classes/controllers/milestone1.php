@@ -69,6 +69,7 @@ public function action_tables() {
     $rows = $_GET['val1'];
     $colors = $_GET['val2'];
     $validInput = false;
+    $selectedColors = array();
 
     $data = array();
     $this->template->title='Group 22 Color Selector Page';
@@ -90,28 +91,40 @@ public function action_tables() {
     }
     else {
         $this->template->content=View::forge('pages/color_coordinate_generation_tables',$data);
+        //finding selected colors
+        for($i = 0; $i < 10; $i++) {
+            $varName = 'color'.($i+1);
+            if(isset($_POST[$varName])) {
+                array_push($selectedColors,$_POST[$varName]);
+            }
+            else {
+                array_push($selectedColors,'');
+            }
+        }
 
         //Creating upper table w/o function ---------------------------
         $colors_string = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");//all colors
         $colors_string = array_slice($colors_string,0,$colors);
 
-        $table = "<table width='90%'>";
+        $table = "<table style='border: 1px solid black;width='100%';'>";
         $table .= "<tr><th style='width:20%;'>Color</th> <th>Value</th></tr>";  //initial table row
 
         //rest of table rows
         for($i = 0; $i < $colors; $i++) {
             $table .= "<tr>";   //new table row
-            $table .= "<td>";    //new cell
+            $table .= "<td style='width:20%;border: 1px solid black;'>";    //new cell
             //inside left cell
-            $table .= "<select name='color$i'>";
+            $table .= "<form method='post'>";
+            $table .= "<select name='color$i' id='color$i'>";
 
             for($j = 0; $j < count($colors_string); $j++) {
                 $table .= "<option value='$colors_string[$j]'>$colors_string[$j]</option>";
             }
 
-            $table .= "</select></td>";
+            $table .= "</select></form></td>";
             //inside right cell
-            $table .= "<td><input type='text' name='value$i'></td>";
+            // $table .= "<td style='width:20%;border: 1px solid black;'><input type='text' name='value$i'></td>";
+            $table .= "<td style='width:20%;border: 1px solid black;'>".$selectedColors[$i]."</td>";
             $table .= "</tr>";
         }
 
