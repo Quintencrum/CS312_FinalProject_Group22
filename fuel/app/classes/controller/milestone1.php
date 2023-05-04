@@ -12,6 +12,7 @@ public function action_index(){
     $this->template->title = 'Group 22 Home Page';
     $this->template->css = "styleNew.css";
     $this->template->content = View::forge('pages/index',$data);
+    $this->template->js = "index.js";
 }
 
 public function action_about(){
@@ -19,12 +20,14 @@ public function action_about(){
     $this->template->title='Group 22 About Page';
     $this->template->css="styleAbout.css";   //update
     $this->template->content=View::forge('pages/about',$data);
+    $this->template->js = "about.js";
 }
 
 public function action_colorSelector(){
     $data = array();
     $this->template->title='Group 22 Color Selector Page';
     $this->template->css='style.css';
+    $this->template->js = "colorTable.js";
     
     if($this->color_stage_input == false) {
         $this->template->content=View::forge('pages/color_coordinate_generation_input',$data);
