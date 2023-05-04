@@ -1,4 +1,8 @@
 /* Set font family and color for the entire website */
+
+#mypic {
+    margin-left: 30%;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #444;
@@ -62,7 +66,7 @@ p {
     margin-bottom: 16px;
 }
 
-hfooter p {
+footer p {
     text-align: center;
     font-size: 0.8rem;
     margin: 16px 0;
@@ -71,4 +75,16 @@ hfooter p {
 
 .area {
     visibility: hidden
+}
+
+#orange {
+    background-color: orange;
+}
+
+#toptable {
+    width: 90%;
+}
+
+#bottomtable tr {
+    justify-content: center;
 }
