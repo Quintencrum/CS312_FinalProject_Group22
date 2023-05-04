@@ -37,7 +37,7 @@ public function action_tables() {
     $colors = $_GET['val2'];
     $validInput = false;
     $selectedColors = array();
-
+    $btwh = $rows * 50;
     $data = array();
     $this->template->title='Group 22 Color Selector Page';
     $this->template->css='style.css';
@@ -106,24 +106,24 @@ public function action_tables() {
         //letters array
         $letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
 
-        $table2 = "<table id = 'bottomtable' style='border: 1px solid black; width: 500px; height: 500px;'>";
-        
+        $table2 = "<table id = 'bottomtable' style='border: 1px solid black; width: $btwh; height: $btwh; table-layout:fixed;'><br><br>";
+        $btwh = ($btwh / ($rows * $rows));
         for ($i = 0; $i < $rows+1; $i++) {  //table rows
-            $table2 .= "<br><tr>";
+            $table2 .= "<tr style = 'width: $btwh; height: $btwh;'>";
         for ($j = 0; $j < $rows+1; $j++) {    //table columns (cells per row)
             //First row letter addition
             if($i == 0 && $j != 0) {    //$i equals zero for first row & $j doesn't equal zero to leave left most cell empty
-                $table2 .= "<td style='border: 1px solid black;width='3.5%';'>" . $letters[$j-1] . "</td>";
+                $table2 .= "<td style='border: 1px solid black;'>" . $letters[$j-1] . "</td>";
             }
             elseif($i > 0 && $j == 0) { //numbering the left most column starting in row two
-                $table2 .= "<td style='border: 1px solid black;width='3.5%';'>" . ($i - 1) . "</td>";
+                $table2 .= "<td style='border: 1px solid black;'>" . ($i - 1) . "</td>";
             }
             elseif($i == 0 && $j == 0) {    //leaving top left blank
-                $table2 .= "<td style='border: 1px solid black;width='3.5%';'></td>";
+                $table2 .= "<td style='border: 1px solid black;'></td>";
             }
             else{
                 // $table2 .= "<td style='border: 1px solid black;'>(" . ($i+1) . ", " . ($j+1) . ")</td>";
-                $table2 .= "<td style='border: 1px solid black;width='3.5%';'></td>";
+                $table2 .= "<td style='border: 1px solid black;'></td>";
 
             }
         }
