@@ -1,0 +1,106 @@
+header {
+    background-color: #f8f8f8;
+    border-radius: 25px;
+    width: 620px;
+}
+
+body {
+    color: #444;
+    background-image: linear-gradient(#4e54c8, #8f94fb);
+    padding-bottom: 200px;
+}
+
+#navbar {
+    padding-top: 10px;
+    padding-left: 10px;
+    position: absolute;
+    z-index: 10;
+}
+
+/* Set background color for the header and footer */
+
+/* Style the nav bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 24px;
+    padding: 16px;
+}
+
+nav ul {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+/* href handled with fuel */
+nav li {
+    margin: 0 16px;
+}
+
+nav a {
+    color: #444;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Makes nav elements change color on hover */
+nav a:hover {
+    color: #8c52ff;
+}
+
+h1 {
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 144px;
+    padding-top: 20px;
+    color: #f8f8f8;
+}
+
+h2 {
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 80px;
+    color: #f8f8f8;
+}
+
+h3 {
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 64px;
+    color: #f8f8f8;
+}
+
+p {
+    padding-top: 44px;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 32px;
+    margin-bottom: 16px;
+    color: #f8f8f8;
+}
+
+#team {
+    margin-left: 38%;
+}
+
+#team2 {
+    margin-left: 43%;
+}
+
+.area {
+    visibility: hidden
+}
