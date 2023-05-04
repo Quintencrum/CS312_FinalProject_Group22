@@ -82,7 +82,7 @@ public function action_tables() {
             $table .= "<td style='width:20%;border: 1px solid black;'>";    //new cell
             //inside left cell
             $table .= "<form method='post'>";
-            $table .= "<select name='color$i' id='color$i'>";
+            $table .= "<select style = 'width:80%;' name='color$i' id='color$i'>";
             $rloop = 0;
             for($j = 0; $j < 10; $j++) {
                 $ind = $j + $i;
@@ -96,7 +96,7 @@ public function action_tables() {
             $table .= "</select></form></td>";
             //inside right cell
             // $table .= "<td style='width:20%;border: 1px solid black;'><input type='text' name='value$i'></td>";
-            $table .= "<td style='width:80%;border: 1px solid black;'>".$selectedColors[$i]."</td>";
+            $table .= "<td style='width:80%;border: 1px solid black;'></td>";
             $table .= "</tr>";
         }
 
