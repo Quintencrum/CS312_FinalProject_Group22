@@ -46,6 +46,8 @@ public function action_tables() {
     $data = array();
     $this->template->title='Group 22 Color Selector Page';
     $this->template->css='style.css';
+    $this->template->js = "colorTable.js";
+
 
 
     //need to check if input is valid
