@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Color Coordinate Generation</title>
+</head>
+<body>
+	<h1>Color Coordinate Generation</h1>
+	<form action="/generate" method="get">
+		<label for="rows">Number of Rows/Columns:</label>
+		<input type="number" id="rows" name="rows" min="1" max="26"><br><br>
+		<label for="colors">Number of Colors:</label>
+		<input type="number" id="colors" name="colors" min="1" max="10"><br><br>
+		<input type="submit" value="Generate">
+	</form>
+</body>
+</html> -->
+<html>
+<head>
+	<title>Printable View</title>
+	<style>
+/* Add any necessary styles for the printable view */
+table {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    border: 1px solid black;
+}
+/* Render in greyscale */
+body {
+    filter: grayscale(100%);
+}
+
+#navbar {
+	visibility: hidden;
+}
+
+#homepagelogo {
+    scale: 50%;
+	margin-bottom: -10%;
+}
+
+					</style>
+				</head>
+				<body>
+					<!-- Add the header with company name and logo -->
+					<header>
+						<div id="homepagelogo">
+    					<?php echo Asset::img("Web22.png")?>
+    					</div>
+							<h1>Web22</h1>
+						</header>
+
+						<!-- Add the selected tables and dimensions -->
+						<h2>Selected Tables</h2>
+						<p>${selectedTables}</p>
+						<h2>Selected Dimensions</h2>
+						<p>${selectedDimensions}</p>
+
+						<!-- Add the color names as plain text -->
+						<h2>Color Names</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Dropdown 1</th>
+									<th>Dropdown 2</th>
+									<th>Dropdown 3</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Selected Color Name 1</td>
+									<td>Selected Color Name 2</td>
+									<td>Selected Color Name 3</td>
+								</tr>
+							</tbody>
+						</table>
+</body>
+</html>
