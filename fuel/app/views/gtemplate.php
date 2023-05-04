@@ -4,10 +4,9 @@
         <meta name="author" content="CS312">
         <meta name="description" content="A homepage for lab 2">
         <meta name="keywords" content="Final Project, HTML5, Group 22, CS312, CSU, Colorado State University">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         
         <?php echo Asset::css($css) ?>
-        <?php echo Asset::js($js) ?>
 
     </head>
 <body>
@@ -19,6 +18,7 @@
         </ul>
     </nav>
     <?php echo $content; ?>
+    <?php echo Asset::js($js) ?>
 </body>
 <footer>
 </footer>
