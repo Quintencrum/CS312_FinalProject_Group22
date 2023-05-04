@@ -53,7 +53,7 @@ public function action_tables() {
 
     if($validInput == false) {
         $this->template->content=View::forge('pages/color_coordinate_generation_input',$data);
-        echo "Invalid input choose a number of rows/columns between 1 and 26 and a number of colors between 1 and 10.";
+        echo "<h2 style = 'color:red'>Invalid input choose a number of rows/columns between 1 and 26 and a number of colors between 1 and 10.</h2>";
 
     }
     else {
