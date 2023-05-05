@@ -144,33 +144,27 @@ public function action_tables() {
                     $('.sels').click(function () {
                         $(this).data('og', this.value);
                             }).change(function () {
-                                var indic = -1;
+                                var indic = -2;
                                 var newdiv = this.parentElement;
                                 var divs = document.getElementsByClassName('divy');
                                 var color = newdiv.getElementsByTagName('select')[0].value;
                                 for (let j = 0; j < divs.length; j++) {
                                     var dcheck = divs[j].getElementsByTagName('select')[0].value;
                                     if (color == dcheck) {
-                                        indic = 1;
+                                        indic++;
                                     }
                                 }
                                 if (indic < 0) {
-                                    document.getElementById('dsel').removeAttribute('id'); //olddiv
-                                    var oldinp = document.getElementById('selected');
-                                    oldinp.checked = false;
-                                    oldinp.removeAttribute('id');
-                                    oldinp.parentElement.parentElement.parentElement.parentElement.removeAttribute('id');
-                                    var newinp = newdiv.firstChild;
-                                    var newtr = newinp.parentElement.parentElement.parentElement.parentElement;
-                                    newdiv.setAttribute('id','dsel');
-                                    newinp.checked = true;
-                                    newinp.setAttribute('id','selected');
-                                    newtr.setAttribute('id', 'pselect');
-                                    var colsq = document.getElementsByClassName('colored');
-                                    for (let i = 0; i < colsq.length; i++) {
-                                        var cell = colsq[i];
-                                        cell.className = '';
-                                        $(cell).addClass(color + ' colored clckable');
+                                    var clid = this.parentElement.parentElement.parentElement.parentElement;
+                                    var colsq = clid.lastChild.innerHTML;
+                                    vals = colsq.replaceAll(',', ' ');
+                                    let arr = vals.split(/ /);
+                                    if (arr.length > 0) {
+                                        for (let i = 0; i < arr.length; i++) {
+                                            var cell = document.getElementById(arr[i]);
+                                            cell.className = '';
+                                            $(cell).addClass(color + ' colored clckable');
+                                        }
                                     }
                                 }
                                 else {
@@ -204,7 +198,6 @@ public function action_tables() {
                         var row = document.getElementById('pselect');
                         var colid = $(row).attr('class');
                         var test = document.getElementById(colid);
-                        var numcolored = document.getElementsByClassName('colored');
                         if (!$(this).hasClass('colored')){
                             var vals = test.innerHTML;
                             if (vals.length == 0) {
