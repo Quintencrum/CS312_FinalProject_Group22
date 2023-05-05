@@ -72,8 +72,8 @@ public function action_tables() {
         //Creating upper table w/o function ---------------------------
         $colors_string = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");//all colors
         // $colors_string = array_slice($colors_string,0,$colors);
-
-        $table = "<table id = 'toptable' style='border: 1px solid black;width=100%;'>";
+        $table = "<header><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><header>";
+        $table .= "<table id = 'toptable' style='border: 1px solid black;width=100%;'>";
         //$table .= "<tr><th style='width:20%;'>Color</th> <th>Value</th></tr>";  //initial table row
 
         //rest of table rows
@@ -82,7 +82,12 @@ public function action_tables() {
             $table .= "<td style='width:20%;border: 1px solid black;'>";    //new cell
             //inside left cell
             $table .= "<form method='post'>";
-            $table .= "<select style = 'width:80%;' name='color$i' id='color$i'>";
+            if ($i == 0) { //first radio button checked by default
+                $table .= "<input id = 'selected' class = 'rbutt' type=radio checked><select style = 'width:80%;' name='color$i' id='color$i'>";
+            }
+            else {
+                $table .= "<input class = 'rbutt' type=radio><select style = 'width:80%;' name='color$i' id='color$i'>";
+            }
             $rloop = 0;
             for($j = 0; $j < 10; $j++) {
                 $ind = $j + $i;
@@ -110,34 +115,47 @@ public function action_tables() {
         $btwh = ($btwh / ($rows * $rows));
         for ($i = 0; $i < $rows+1; $i++) {  //table rows
             $table2 .= "<tr style = 'width: $btwh; height: $btwh;'>";
-        for ($j = 0; $j < $rows+1; $j++) {    //table columns (cells per row)
-            //First row letter addition
-            if($i == 0 && $j != 0) {    //$i equals zero for first row & $j doesn't equal zero to leave left most cell empty
-                $table2 .= "<td style='border: 1px solid black;'>" . $letters[$j-1] . "</td>";
-            }
-            elseif($i > 0 && $j == 0) { //numbering the left most column starting in row two
-                $table2 .= "<td style='border: 1px solid black;'>" . ($i - 1) . "</td>";
-            }
-            elseif($i == 0 && $j == 0) {    //leaving top left blank
-                $table2 .= "<td style='border: 1px solid black;'></td>";
-            }
-            else{
-                // $table2 .= "<td style='border: 1px solid black;'>(" . ($i+1) . ", " . ($j+1) . ")</td>";
-                $table2 .= "<td style='border: 1px solid black;'></td>";
+            for ($j = 0; $j < $rows+1; $j++) {    //table columns (cells per row)
+                //First row letter addition
+                if($i == 0 && $j != 0) {    //$i equals zero for first row & $j doesn't equal zero to leave left most cell empty
+                    $table2 .= "<td style='border: 1px solid black;'>" . $letters[$j-1] . "</td>";
+                }
+                elseif($i > 0 && $j == 0) { //numbering the left most column starting in row two
+                    $table2 .= "<td style='border: 1px solid black;'>" . ($i - 1) . "</td>";
+                }
+                elseif($i == 0 && $j == 0) {    //leaving top left blank
+                    $table2 .= "<td style='border: 1px solid black;'></td>";
+                }
+                else{
+                    // $table2 .= "<td style='border: 1px solid black;'>(" . ($i+1) . ", " . ($j+1) . ")</td>";
+                    $table2 .= "<td id = '$i,$j' style='border: 1px solid black;'></td>";
 
+                }
             }
-        }
-        $table2 .= "</tr>";
+            $table2 .= "</tr>";
         }
         $table2 .= "</table>";
         //--------------------------------------------------------------
-        $tables = $table . "<br><br>" . $table2;
-
-
+        $table2 .= "<script>
+                $(document).ready(function () {
+                    $('.rbutt').click(function () {
+                        console.log('we made it');
+                        document.getElementById('selected').checked = false;
+                        document.getElementById('selected').removeAttribute('id');
+                        $(this).checked = true;
+                        this.setAttribute('id','selected');
+                    });
+                });
+                </script>";
+        $tables = $table . "<br>" . $table2;
         echo $tables;
+
+
+        
     }
-
 }
 
 
 }
+
+?>
