@@ -217,7 +217,6 @@ public function action_tables() {
                                     let tarr = vals.split(/ /);
                                     vals = '';
                                     tarr.sort();
-                                    console.log('last loop' + tarr.length);
                                     for (let i = 0; i < tarr.length; i++) {
                                         if ((i+1) == tarr.length) {
                                             vals = vals + tarr[i];
