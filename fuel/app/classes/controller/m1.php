@@ -71,22 +71,25 @@ public function action_tables() {
 
         //Creating upper table w/o function ---------------------------
         $colors_string = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");//all colors
-        // $colors_string = array_slice($colors_string,0,$colors);
         $table = "<header><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><header>";
         $table .= "<table id = 'toptable' style='border: 1px solid black;width=100%;'>";
-        //$table .= "<tr><th style='width:20%;'>Color</th> <th>Value</th></tr>";  //initial table row
 
         //rest of table rows
         for($i = 0; $i < $colors; $i++) {
-            $table .= "<tr>";   //new table row
+            if ($i == 0) {
+                $table .= "<tr class = '$i' id = 'pselect'>";
+            }
+            else {
+                $table .= "<tr class = '$i'>";   //new table row
+            }
             $table .= "<td style='width:20%;border: 1px solid black;'>";    //new cell
             //inside left cell
             $table .= "<form method='post'>";
             if ($i == 0) { //first radio button checked by default
-                $table .= "<input id = 'selected' class = 'rbutt' type=radio checked><select style = 'width:80%;' name='color$i' id='color$i'>";
+                $table .= "<div id='dsel'><input id='selected' class='rbutt' type=radio checked><select class='sels' style = 'width:80%;'>";
             }
             else {
-                $table .= "<input class = 'rbutt' type=radio><select style = 'width:80%;' name='color$i' id='color$i'>";
+                $table .= "<div><input class = 'rbutt' type=radio><select class='sels' style = 'width:80%;'>";
             }
             $rloop = 0;
             for($j = 0; $j < 10; $j++) {
@@ -95,13 +98,12 @@ public function action_tables() {
                     $ind = 0 + $rloop;
                     $rloop++;
                 }
-                $table .= "<option value='$colors_string[$ind]'>$colors_string[$ind]</option>";
+                $table .= "<option class='nchoice' value='$colors_string[$ind]'>$colors_string[$ind]</option>";
             }
 
-            $table .= "</select></form></td>";
+            $table .= "</select></div></form></td>";
             //inside right cell
-            // $table .= "<td style='width:20%;border: 1px solid black;'><input type='text' name='value$i'></td>";
-            $table .= "<td style='width:80%;border: 1px solid black;'></td>";
+            $table .= "<td id ='$i' style='width:80%;border: 1px solid black;'></td>";
             $table .= "</tr>";
         }
 
@@ -127,8 +129,9 @@ public function action_tables() {
                     $table2 .= "<td style='border: 1px solid black;'></td>";
                 }
                 else{
-                    // $table2 .= "<td style='border: 1px solid black;'>(" . ($i+1) . ", " . ($j+1) . ")</td>";
-                    $table2 .= "<td id = '$i,$j' style='border: 1px solid black;'></td>";
+                    $lt = $letters[$j-1];
+                    $nb = $i-1;
+                    $table2 .= "<td class = 'clckable' id = '$lt$nb' style='border: 1px solid black;'></td>";
 
                 }
             }
@@ -137,13 +140,90 @@ public function action_tables() {
         $table2 .= "</table>";
         //--------------------------------------------------------------
         $table2 .= "<script>
+
+                // $(document).ready(function () {
+                //     $('option').click(function () {
+                //         console.log('newcolor');
+                //     });
+                // });
+
                 $(document).ready(function () {
                     $('.rbutt').click(function () {
-                        console.log('we made it');
-                        document.getElementById('selected').checked = false;
-                        document.getElementById('selected').removeAttribute('id');
+                        var old = document.getElementById('selected');
+                        old.checked = false;
+                        old.removeAttribute('id');
+                        old.parentElement.removeAttribute('id');
+                        var oldtr = old.parentElement.parentElement.parentElement.parentElement;
+                        oldtr.removeAttribute('id');
                         $(this).checked = true;
                         this.setAttribute('id','selected');
+                        this.setAttribute('selected','sel');
+                        this.parentElement.setAttribute('id','dsel');
+                        var newtr = this.parentElement.parentElement.parentElement.parentElement;
+                        newtr.setAttribute('id', 'pselect');
+                    });
+                });
+
+                // $(document).ready(function () {
+                //     $('.sels').click(function () {
+
+                //     });
+                // });
+
+                $(document).ready(function () {
+                    $('.clckable').click(function () {
+                        var ntval = $(this).attr('id');
+                        var row = document.getElementById('pselect');
+                        var colid = $(row).attr('class');
+                        var test = document.getElementById(colid);
+                        if (!$(this).hasClass('colored')){
+                            var vals = test.innerHTML;
+                            let lar = vals.split(/ /);
+                            console.log(lar.length);
+                            if (vals.length == 0) {
+                                vals = ntval;
+                            }
+                            else if (lar.length == 1) {
+                                vals = vals + ' ' + ntval;
+                                let arr = vals.split(/ /);
+                                vals = '';
+                                arr.sort();
+                                for (let i = 0; i < arr.length; i ++) {
+                                    if (i==0) {
+                                        vals = arr[i] + ',';
+                                    }
+                                    else {
+                                        vals = vals + arr[i];
+                                    }
+                                }
+                            }
+                            else {
+                                console.log(vals);
+                                console.log(vals);
+                                vals = vals+ntval;
+                                console.log(vals);
+                                let arr = vals.split(/, /);
+                                vals = '';
+                                console.log(arr);
+                                arr.sort();
+                                console.log(arr);
+                                console.log(arr.length);
+                                for (let i = 0; i < arr.length; i ++) {
+                                    if (i==0) {
+                                        vals = vals + arr[i] + ',';
+                                    }
+                                }
+                            }
+                            test.innerHTML = vals;
+                        }
+                        var color = document.getElementById('dsel').getElementsByTagName('select')[0].value;
+                        $(this).addClass(color + ' colored');
+                        
+                        
+
+
+
+                        
                     });
                 });
                 </script>";
