@@ -157,13 +157,13 @@ public function action_tables() {
                                 if (indic < 0) {
                                     var clid = this.parentElement.parentElement.parentElement.parentElement;
                                     var colsq = clid.lastChild.innerHTML;
-                                    vals = colsq.replaceAll(',', ' ');
+                                    var vals = colsq.replaceAll(',', ' ');
                                     let arr = vals.split(/ /);
                                     if (colsq.length > 0) {
                                         for (let i = 0; i < arr.length; i++) {
                                             var cell = document.getElementById(arr[i]);
                                             cell.className = '';
-                                            $(cell).addClass(color + ' colored clckable');
+                                            $(cell).addClass('clckable ' + color + ' colored');
                                         }
                                     }
                                 }
@@ -198,6 +198,7 @@ public function action_tables() {
                         var row = document.getElementById('pselect');
                         var colid = $(row).attr('class');
                         var test = document.getElementById(colid);
+                        var color = document.getElementById('dsel').getElementsByTagName('select')[0].value;
                         if (!$(this).hasClass('colored')){
                             var vals = test.innerHTML;
                             if (vals.length == 0) {
@@ -228,18 +229,78 @@ public function action_tables() {
                                 }
                             }
                             test.innerHTML = vals;
+                        
+                        
+                            $(this).addClass('clckable ' + color + ' colored');
                         }
-                        var color = document.getElementById('dsel').getElementsByTagName('select')[0].value;
-                        $(this).addClass(color + ' colored');
+                        else {
+                            var ocolor = this.classList[1];
+                            if (!(color == ocolor)) {
+                                this.classList = '';
+                                var slects = document.getElementsByClassName('sels');
+                                var osel = slects[0];
+                                for (let i = 0; i < slects.length; i++) {
+                                    console.log(slects[i].value);
+                                    if (slects[i].value == ocolor) {
+                                        osel = slects[i];
+                                    }
+                                }
+                                var otr = osel.parentElement.parentElement.parentElement.parentElement;
+                                var colsq = otr.lastChild.innerHTML;
+                                
+                                //console.log(colsq);
+                                var vals = colsq.replaceAll(',', ' ');
+                                let arr = vals.split(/ /);
+                                var cid = $(this).attr('id');
+                                var ind = arr.indexOf(cid);
+                                arr.splice(ind, 1);
+                                vals = '';
+                                for (let i = 0; i < arr.length; i++) {
+                                    if ((i+1) == arr.length) {
+                                        vals = vals + arr[i];
+                                    }
+                                    else {
+                                        vals = vals + arr[i] + ',';
+                                    }
+                                }
+                                otr.lastChild.innerHTML = vals;
+                                var vals = test.innerHTML;
+                            if (vals.length == 0) {
+                                vals = ntval;
+                            }
+                            else {
+                                vals = vals.replaceAll(',', ' ');
+                                let arr = vals.split(/ /);
+                                if (arr.length == 1) {
+                                    arr[1] = ntval;
+                                    vals = '';
+                                    arr.sort();
+                                    vals = arr[0] + ',' + arr[1];
+                                }
+                                else {
+                                    vals = vals + ' ' + ntval;
+                                    let tarr = vals.split(/ /);
+                                    vals = '';
+                                    tarr.sort();
+                                    for (let i = 0; i < tarr.length; i++) {
+                                        if ((i+1) == tarr.length) {
+                                            vals = vals + tarr[i];
+                                        }
+                                        else {
+                                            vals = vals + tarr[i] + ',';
+                                        }
+                                    }
+                                }
+                            }
+                            test.innerHTML = vals;
                         
                         
-
-
-
-                        
+                            $(this).addClass('clckable ' + color + ' colored');
+                          }
+                        }
                     });
                 });
-                </script>";
+            </script>";
         $tables = $table . "<br>" . $table2;
         echo $tables;
 
