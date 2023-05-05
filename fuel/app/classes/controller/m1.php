@@ -144,6 +144,7 @@ public function action_tables() {
                     $('.sels').click(function () {
                         $(this).data('og', this.value);
                             }).change(function () {
+                                document.getElementById('insh').innerHTML = '';
                                 var indic = -2;
                                 var newdiv = this.parentElement;
                                 var divs = document.getElementsByClassName('divy');
@@ -177,6 +178,7 @@ public function action_tables() {
 
                 $(document).ready(function () {
                     $('.rbutt').click(function () {
+                        document.getElementById('insh').innerHTML = '';
                         var old = document.getElementById('selected');
                         old.checked = false;
                         old.removeAttribute('id');
@@ -194,6 +196,7 @@ public function action_tables() {
 
                 $(document).ready(function () {
                     $('.clckable').click(function () {
+                        document.getElementById('insh').innerHTML = '';
                         var ntval = $(this).attr('id');
                         var row = document.getElementById('pselect');
                         var colid = $(row).attr('class');
@@ -240,15 +243,13 @@ public function action_tables() {
                                 var slects = document.getElementsByClassName('sels');
                                 var osel = slects[0];
                                 for (let i = 0; i < slects.length; i++) {
-                                    console.log(slects[i].value);
                                     if (slects[i].value == ocolor) {
                                         osel = slects[i];
                                     }
                                 }
                                 var otr = osel.parentElement.parentElement.parentElement.parentElement;
                                 var colsq = otr.lastChild.innerHTML;
-                                
-                                //console.log(colsq);
+                               
                                 var vals = colsq.replaceAll(',', ' ');
                                 let arr = vals.split(/ /);
                                 var cid = $(this).attr('id');
