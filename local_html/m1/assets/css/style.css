@@ -77,8 +77,44 @@ footer p {
     visibility: hidden
 }
 
-#orange {
+td .red {
+    background-color: red;
+}
+
+td .orange {
     background-color: orange;
+}
+
+td .yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.black {
+    background-color: black;
+}
+
+.teal {
+    background-color: teal;
 }
 
 #toptable {
@@ -87,4 +123,4 @@ footer p {
 
 #bottomtable tr {
     justify-content: center;
-}
+}s
