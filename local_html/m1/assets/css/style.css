@@ -77,15 +77,15 @@ footer p {
     visibility: hidden
 }
 
-td .red {
+.red {
     background-color: red;
 }
 
-td .orange {
+.orange {
     background-color: orange;
 }
 
-td .yellow {
+.yellow {
     background-color: yellow;
 }
 
@@ -117,10 +117,50 @@ td .yellow {
     background-color: teal;
 }
 
+#bottomtable .red {
+    background-color: red;
+}
+
+#bottomtable .orange {
+    background-color: orange;
+}
+
+#bottomtable .yellow {
+    background-color: yellow;
+}
+
+#bottomtable .green {
+    background-color: green;
+}
+
+#bottomtable .blue {
+    background-color: blue;
+}
+
+#bottomtable .purple {
+    background-color: purple;
+}
+
+#bottomtable .grey {
+    background-color: grey;
+}
+
+#bottomtable .brown {
+    background-color: brown;
+}
+
+#bottomtable .black {
+    background-color: black;
+}
+
+#bottomtable .teal {
+    background-color: teal;
+}
+
 #toptable {
     width: 90%;
 }
 
 #bottomtable tr {
     justify-content: center;
-}s
+}
