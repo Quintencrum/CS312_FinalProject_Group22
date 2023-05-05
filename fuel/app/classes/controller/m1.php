@@ -37,7 +37,7 @@ public function action_tables() {
     $colors = $_GET['val2'];
     $validInput = false;
     $selectedColors = array();
-    $btwh = $rows * 50;
+    $btwh = $rows * 40;
     $data = array();
     $this->template->title='Group 22 Color Selector Page';
     $this->template->css='style.css';
