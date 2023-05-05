@@ -72,7 +72,7 @@ public function action_tables() {
         //Creating upper table w/o function ---------------------------
         $colors_string = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");//all colors
         $table = "<header><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><header>";
-        $table .= "<table id = 'toptable' style='border: 1px solid black;width=100%;'>";
+        $table .= "<h3 id='insh' style = 'color:red'></h3><table id = 'toptable' style='border: 1px solid black;width=90%; height:10%'>";
 
         //rest of table rows
         for($i = 0; $i < $colors; $i++) {
@@ -86,10 +86,10 @@ public function action_tables() {
             //inside left cell
             $table .= "<form method='post'>";
             if ($i == 0) { //first radio button checked by default
-                $table .= "<div id='dsel'><input id='selected' class='rbutt' type=radio checked><select class='sels' style = 'width:80%;'>";
+                $table .= "<div id='dsel' class = 'divy'><input id='selected' class='rbutt' type=radio checked><select class='sels' style = 'width:80%;'>";
             }
             else {
-                $table .= "<div><input class = 'rbutt' type=radio><select class='sels' style = 'width:80%;'>";
+                $table .= "<div class = 'divy'><input class = 'rbutt' type=radio><select class='sels' style = 'width:80%;'>";
             }
             $rloop = 0;
             for($j = 0; $j < 10; $j++) {
@@ -140,12 +140,46 @@ public function action_tables() {
         $table2 .= "</table>";
         //--------------------------------------------------------------
         $table2 .= "<script>
-
-                // $(document).ready(function () {
-                //     $('option').click(function () {
-                //         console.log('newcolor');
-                //     });
-                // });
+                $(document).ready(function () {
+                    $('.sels').click(function () {
+                        $(this).data('og', this.value);
+                            }).change(function () {
+                                var indic = -1;
+                                var newdiv = this.parentElement;
+                                var divs = document.getElementsByClassName('divy');
+                                var color = newdiv.getElementsByTagName('select')[0].value;
+                                for (let j = 0; j < divs.length; j++) {
+                                    var dcheck = divs[j].getElementsByTagName('select')[0].value;
+                                    if (color == dcheck) {
+                                        indic = 1;
+                                    }
+                                }
+                                if (indic < 0) {
+                                    document.getElementById('dsel').removeAttribute('id'); //olddiv
+                                    var oldinp = document.getElementById('selected');
+                                    oldinp.checked = false;
+                                    oldinp.removeAttribute('id');
+                                    oldinp.parentElement.parentElement.parentElement.parentElement.removeAttribute('id');
+                                    var newinp = newdiv.firstChild;
+                                    var newtr = newinp.parentElement.parentElement.parentElement.parentElement;
+                                    newdiv.setAttribute('id','dsel');
+                                    newinp.checked = true;
+                                    newinp.setAttribute('id','selected');
+                                    newtr.setAttribute('id', 'pselect');
+                                    var colsq = document.getElementsByClassName('colored');
+                                    for (let i = 0; i < colsq.length; i++) {
+                                        var cell = colsq[i];
+                                        cell.className = '';
+                                        $(cell).addClass(color + ' colored clckable');
+                                    }
+                                }
+                                else {
+                                    $(this).val($(this).data('og'));
+                                    document.getElementById('insh').innerHTML = 'Invalid input - no two color selectors can match, please choose a different color!';
+                                }
+                        
+                    });
+                });
 
                 $(document).ready(function () {
                     $('.rbutt').click(function () {
@@ -157,18 +191,12 @@ public function action_tables() {
                         oldtr.removeAttribute('id');
                         $(this).checked = true;
                         this.setAttribute('id','selected');
-                        this.setAttribute('selected','sel');
                         this.parentElement.setAttribute('id','dsel');
                         var newtr = this.parentElement.parentElement.parentElement.parentElement;
                         newtr.setAttribute('id', 'pselect');
                     });
                 });
 
-                // $(document).ready(function () {
-                //     $('.sels').click(function () {
-
-                //     });
-                // });
 
                 $(document).ready(function () {
                     $('.clckable').click(function () {
@@ -179,31 +207,31 @@ public function action_tables() {
                         var numcolored = document.getElementsByClassName('colored');
                         if (!$(this).hasClass('colored')){
                             var vals = test.innerHTML;
-                            let arr = vals.split();
-                            console.log(numcolored.length);
-                            if (numcolored.length == 0) {
+                            if (vals.length == 0) {
                                 vals = ntval;
                             }
-                            else if (numcolored.length == 1) {
-                                arr[1] = ntval;
-                                vals = '';
-                                arr.sort();
-                                vals = arr[0] + ',' + arr[1];
-                            }
                             else {
-                                console.log('third loop');
                                 vals = vals.replaceAll(',', ' ');
-                                vals = vals + ' ' + ntval;
                                 let arr = vals.split(/ /);
-                                console.log(arr.length);
-                                vals = '';
-                                arr.sort();
-                                for (let i = 0; i <= numcolored.length; i++) {
-                                    if (i == numcolored.length) {
-                                        vals = vals + arr[i];
-                                    }
-                                    else {
-                                       vals = vals + arr[i] + ',';
+                                if (arr.length == 1) {
+                                    arr[1] = ntval;
+                                    vals = '';
+                                    arr.sort();
+                                    vals = arr[0] + ',' + arr[1];
+                                }
+                                else {
+                                    vals = vals + ' ' + ntval;
+                                    let tarr = vals.split(/ /);
+                                    vals = '';
+                                    tarr.sort();
+                                    console.log('last loop' + tarr.length);
+                                    for (let i = 0; i < tarr.length; i++) {
+                                        if ((i+1) == tarr.length) {
+                                            vals = vals + tarr[i];
+                                        }
+                                        else {
+                                            vals = vals + tarr[i] + ',';
+                                        }
                                     }
                                 }
                             }
