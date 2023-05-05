@@ -159,7 +159,7 @@ public function action_tables() {
                                     var colsq = clid.lastChild.innerHTML;
                                     vals = colsq.replaceAll(',', ' ');
                                     let arr = vals.split(/ /);
-                                    if (arr.length > 0) {
+                                    if (colsq.length > 0) {
                                         for (let i = 0; i < arr.length; i++) {
                                             var cell = document.getElementById(arr[i]);
                                             cell.className = '';
