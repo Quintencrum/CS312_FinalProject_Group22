@@ -1,4 +1,8 @@
 /* Set font family and color for the entire website */
+
+#mypic {
+    margin-left: 30%;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #444;
@@ -62,7 +66,7 @@ p {
     margin-bottom: 16px;
 }
 
-hfooter p {
+footer p {
     text-align: center;
     font-size: 0.8rem;
     margin: 16px 0;
@@ -71,4 +75,92 @@ hfooter p {
 
 .area {
     visibility: hidden
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.grey {
+    background-color: grey;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.black {
+    background-color: black;
+}
+
+.teal {
+    background-color: teal;
+}
+
+#bottomtable .red {
+    background-color: red;
+}
+
+#bottomtable .orange {
+    background-color: orange;
+}
+
+#bottomtable .yellow {
+    background-color: yellow;
+}
+
+#bottomtable .green {
+    background-color: green;
+}
+
+#bottomtable .blue {
+    background-color: blue;
+}
+
+#bottomtable .purple {
+    background-color: purple;
+}
+
+#bottomtable .grey {
+    background-color: grey;
+}
+
+#bottomtable .brown {
+    background-color: brown;
+}
+
+#bottomtable .black {
+    background-color: black;
+}
+
+#bottomtable .teal {
+    background-color: teal;
+}
+
+#toptable {
+    width: 90%;
+}
+
+#bottomtable tr {
+    justify-content: center;
 }
