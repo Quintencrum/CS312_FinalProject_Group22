@@ -176,41 +176,34 @@ public function action_tables() {
                         var row = document.getElementById('pselect');
                         var colid = $(row).attr('class');
                         var test = document.getElementById(colid);
+                        var numcolored = document.getElementsByClassName('colored');
                         if (!$(this).hasClass('colored')){
                             var vals = test.innerHTML;
-                            let lar = vals.split(/ /);
-                            console.log(lar.length);
-                            if (vals.length == 0) {
+                            let arr = vals.split();
+                            console.log(numcolored.length);
+                            if (numcolored.length == 0) {
                                 vals = ntval;
                             }
-                            else if (lar.length == 1) {
-                                vals = vals + ' ' + ntval;
-                                let arr = vals.split(/ /);
+                            else if (numcolored.length == 1) {
+                                arr[1] = ntval;
                                 vals = '';
                                 arr.sort();
-                                for (let i = 0; i < arr.length; i ++) {
-                                    if (i==0) {
-                                        vals = arr[i] + ',';
-                                    }
-                                    else {
-                                        vals = vals + arr[i];
-                                    }
-                                }
+                                vals = arr[0] + ',' + arr[1];
                             }
                             else {
-                                console.log(vals);
-                                console.log(vals);
-                                vals = vals+ntval;
-                                console.log(vals);
-                                let arr = vals.split(/, /);
-                                vals = '';
-                                console.log(arr);
-                                arr.sort();
-                                console.log(arr);
+                                console.log('third loop');
+                                vals = vals.replaceAll(',', ' ');
+                                vals = vals + ' ' + ntval;
+                                let arr = vals.split(/ /);
                                 console.log(arr.length);
-                                for (let i = 0; i < arr.length; i ++) {
-                                    if (i==0) {
-                                        vals = vals + arr[i] + ',';
+                                vals = '';
+                                arr.sort();
+                                for (let i = 0; i <= numcolored.length; i++) {
+                                    if (i == numcolored.length) {
+                                        vals = vals + arr[i];
+                                    }
+                                    else {
+                                       vals = vals + arr[i] + ',';
                                     }
                                 }
                             }
