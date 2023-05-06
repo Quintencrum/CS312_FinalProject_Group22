@@ -1,5 +1,5 @@
 <?php
-class Controller_milestone1 extends Controller_Template {
+class Controller_m1 extends Controller_Template {
 
 public $color_stage_input = false;
 
@@ -8,14 +8,14 @@ public $template = 'gtemplate';
 public function action_index(){
     $data = array();
     $this->template->title = 'Group 22 Home Page';
-    $this->template->css = "styleNew.css";
+    $this->template->css = "style.css";
     $this->template->content = View::forge('pages/index',$data);
 }
 
 public function action_about(){
     $data = array();
     $this->template->title='Group 22 About Page';
-    $this->template->css="styleAbout.css";   //update
+    $this->template->css="style.css";   //update
     $this->template->content=View::forge('pages/about',$data);
 }
 
@@ -71,8 +71,8 @@ public function action_tables() {
 
         //Creating upper table w/o function ---------------------------
         $colors_string = array("red","orange","yellow","green","blue","purple","grey","brown","black","teal");//all colors
-        $table = "<header><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><header>";
-        $table .= "<h3 id='insh' style = 'color:red'></h3><table id = 'toptable' style='border: 1px solid black;width=90%; height:10%'>";
+        $table = "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
+        $table .= "<div id='tablesprinted'><h3 id='insh' style = 'color:red'></h3><body><table id = 'toptable' style='border: 1px solid black;width=90%; height:10%'>";
 
         //rest of table rows
         for($i = 0; $i < $colors; $i++) {
@@ -113,7 +113,7 @@ public function action_tables() {
         //letters array
         $letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
 
-        $table2 = "<table id = 'bottomtable' style='border: 1px solid black; width: $btwh; height: $btwh; margin-right:auto; margin-left:auto;table-layout:fixed;'><br><br>";
+        $table2 = "<table id = 'bottomtable' style='border: 1px solid black; width: $btwh; height: $btwh; margin-right: auto; margin-left: auto; table-layout:fixed;'><br><br>";
         $btwh = ($btwh / ($rows * $rows));
         for ($i = 0; $i < $rows+1; $i++) {  //table rows
             $table2 .= "<tr style = 'width: $btwh; height: $btwh;'>";
@@ -137,7 +137,7 @@ public function action_tables() {
             }
             $table2 .= "</tr>";
         }
-        $table2 .= "</table>";
+        $table2 .= "</table> </body> </div>";
         //--------------------------------------------------------------
         $table2 .= "<script>
                 $(document).ready(function () {
