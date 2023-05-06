@@ -3,16 +3,38 @@
 #mypic {
     margin-left: 30%;
 }
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #444;
-    background-color: #ebebeb;
+
+#navspacing {
+    padding-top: 100px;
 }
 
-/* Set background color for the header and footer */
-header,
-footer {
-    background-color: #f8f8f8;
+#homepagelogo {
+    margin-right: 116px;
+    border: 25px solid transparent;
+    border-image: repeating-linear-gradient(30deg, #4d9f0c, #9198e5, #4d9f0c 20px) 60;
+}
+
+#logowrap {
+    margin-left: 17%;
+}
+
+body {
+    color: #f8f8f8;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 32px;
+    background-image: linear-gradient(#4e54c8, #8f94fb);
+    padding-bottom: 200px;
+}
+
+#navbar {
+    padding-top: 10px;
+    padding-left: 10px;
+    position: absolute;
+    z-index: 10;
+    
 }
 
 /* Style the nav bar */
@@ -26,10 +48,12 @@ nav {
 }
 
 nav ul {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
 }
 
 /* href handled with fuel */
@@ -42,10 +66,16 @@ nav a {
     text-decoration: none;
     font-weight: bold;
 }
+header,
+footer {
+    background-color: #f8f8f8;
+    border-radius: 25px;
+    width: 620px;
+}
 
 /* Makes nav elements change color on hover */
 nav a:hover {
-    color: #ADD8E6;
+    color: #8c52ff;
 }
 
 main {
@@ -55,7 +85,6 @@ main {
 }
 
 h1 {
-    color: #2c3e50;
     font-size: 64px;
     margin-top: 0;
 }
