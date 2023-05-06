@@ -113,7 +113,7 @@ public function action_tables() {
         //letters array
         $letters = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
 
-        $table2 = "<table id = 'bottomtable' style='border: 1px solid black; width: $btwh; height: $btwh; table-layout:fixed;'><br><br>";
+        $table2 = "<table id = 'bottomtable' style='border: 1px solid black; width: $btwh; height: $btwh; margin-right:auto; margin-left:auto;table-layout:fixed;'><br><br>";
         $btwh = ($btwh / ($rows * $rows));
         for ($i = 0; $i < $rows+1; $i++) {  //table rows
             $table2 .= "<tr style = 'width: $btwh; height: $btwh;'>";
